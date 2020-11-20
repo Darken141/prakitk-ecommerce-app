@@ -8,9 +8,10 @@ import CartItem from '../cart-item/cart-item.component'
 import './cart-dropdown.styles.scss'
 
 const CartDropdown = () => {
-    const { cartItems, removeItem, toggleCart } = useContext(CartContext)
+    const { cartItems, removeItem, toggleCart, cartDropdownRef } = useContext(CartContext)
     const history = useHistory()
 
+    console.log(cartDropdownRef)
 
     const handleClick = () => {
         toggleCart()
@@ -18,7 +19,7 @@ const CartDropdown = () => {
     }
 
     return (
-        <div className='cart-dropdown'>
+        <div ref={cartDropdownRef} className='cart-dropdown'>
             <div className='cart-items'>
                 {
                     cartItems.length <= 0 ? (

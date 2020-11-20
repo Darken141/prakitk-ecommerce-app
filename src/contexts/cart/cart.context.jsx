@@ -1,7 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, useRef } from 'react'
 import { addItemToCart } from './cart.utils'
+import { useOutsideAlerter } from '../../hooks/outsideAlerter'
 
 export const CartContext = createContext({
+    cartDropdownRef: null,
     cartItems: [],
     price: 0,
     itemCount: 0,
@@ -18,7 +20,13 @@ const CartProvider = ({ children }) => {
     const [itemCount, setItemCount] = useState(0);
     const [price, setPrice] = useState(0);
     const [cartItems, setCartItems] = useState([])
-    const [cartHidden, setCartHidden] = useState(false)
+    // const [cartHidden, setCartHidden] = useState(false)
+
+    const [cartHidden, setCartHidden, cartDropdownRef] = useOutsideAlerter(false)
+
+    console.log(cartHidden)
+    console.log(setCartHidden)
+    console.log(cartDropdownRef)
 
     const toggleCart = () => {
         if (process.env.NODE_ENV === 'development') {
@@ -53,6 +61,7 @@ const CartProvider = ({ children }) => {
     return (
         <CartContext.Provider
             value={{
+                cartDropdownRef,
                 cartItems,
                 itemCount,
                 price,
