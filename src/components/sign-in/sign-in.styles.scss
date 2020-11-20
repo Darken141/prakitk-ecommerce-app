@@ -1,0 +1,12 @@
+.sign-in {
+    max-width: 38rem;
+
+
+    .buttons {
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}

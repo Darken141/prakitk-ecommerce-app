@@ -1,0 +1,44 @@
+.back-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-family: inherit;
+    font-size: 2rem;
+    transition: color .2s ease-out;
+
+    &__icon {
+        font-size: 2.5rem;
+        border: 3px solid var(--primary-color);
+        padding: 1rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+        transition: border .2s ease-out;
+    }
+
+    &:hover {
+        color: var(--primary-color-lighter);
+
+        .back-button__icon {
+            border: 3px solid var(--primary-color-lighter);
+        }
+    }
+
+    @media all and (max-width: 800px) {
+
+        @media all and (max-width: 500px) {
+            font-size: 1.6rem;
+
+            &__icon {
+                font-size: 1.5rem;
+                border: 1px solid var(--primary-color);
+
+            }
+        }
+    }
+}

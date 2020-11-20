@@ -1,0 +1,96 @@
+@mixin hamStyles {
+    cursor: pointer;
+    display: none;
+    outline: none;
+
+    &:focus {
+        outline: none;
+
+    }
+
+
+    @media all and (max-width: 800px) {
+        margin: auto 0 auto 2rem;
+        align-self: flex-start;
+        display: block;
+        background-color: transparent;
+        border: none;
+        width: 3.5rem;
+        height: 2.5rem;
+        position: relative;
+        // margin-left: 2rem;
+
+        @media all and (max-width: 500px) {
+            margin: auto 0 auto 1rem;
+            width: 2.5rem;
+            height: 1.9rem;
+        }
+    }
+}
+
+.close-ham-styles {
+    @include hamStyles();
+
+    div {
+        position: absolute;
+        width: 100%;
+        height: .2rem;
+        background-color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+
+
+        &:nth-child(1) {
+            top: 0;
+        }
+
+        &:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:nth-child(3) {
+            bottom: 0;
+        }
+    }
+}
+
+.open-ham-styles {
+    @include hamStyles();
+
+    div {
+        position: absolute;
+        width: 3.5rem;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: all 0.3s ease-in-out;
+
+        @media all and (max-width: 500px) {
+            width: 3rem;
+        }
+
+        &:nth-child(1) {
+            top: 1rem;
+            transform: rotate(45deg);
+
+            @media all and (max-width: 500px) {
+                top: .9rem;
+            }
+
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            bottom: 1.3rem;
+            transform: rotate(-45deg);
+
+            @media all and (max-width: 500px) {
+                bottom: .8rem;
+            }
+        }
+    }
+
+
+}

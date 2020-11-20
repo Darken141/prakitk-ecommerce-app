@@ -1,0 +1,79 @@
+.checkout-page {
+    margin-top: 4rem;
+
+    .checkout-form {
+        margin: 5rem 3rem;
+
+        @media all and (max-width: 800px) {
+            margin: 5rem 2rem;
+
+
+            @media all and (max-width: 800px) {
+                margin: 5rem 1rem;
+            }
+        }
+    }
+
+    .checkout-progress {
+        display: flex;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 1.5rem;
+
+        @media all and (max-width: 800px) {
+            display: none;
+        }
+
+        .progress-step {
+            width: 26%;
+            padding: 1.5rem;
+
+            &:first-child {
+                width: 18%;
+            }
+
+            &:last-child {
+                width: 30%;
+            }
+        }
+
+        .active {
+            border-radius: 1.5rem 0 0 1.5rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            position: relative;
+
+            ::after {
+                content: " ";
+                position: absolute;
+                width: 5rem;
+                background-color: gray;
+                height: 100%;
+                right: 0;
+                top: 0;
+                border: 2.5rem solid #fff;
+                border-left: 2.5rem solid var(--primary-color);
+            }
+        }
+
+        @media all and (max-width: 800px) {
+            font-size: 1.4rem;
+
+            .progress-step {
+                padding: 1rem;
+            }
+
+            .active {
+                ::after {
+                    position: absolute;
+                    width: 3rem;
+                    border: 2rem solid #fff;
+                    border-left: 2rem solid var(--primary-color);
+                }
+            }
+        }
+    }
+
+
+
+}

@@ -1,0 +1,68 @@
+.add-product-page {
+
+    .container {
+        padding: 0 3rem;
+
+        @media all and (max-width: 800px) {
+            padding: 0 2rem;
+
+            @media all and (max-width: 500px) {
+                padding: 0 1rem;
+
+            }
+        }
+    }
+
+    .add-item-form {
+        margin: 5rem 0;
+        max-width: 85rem;
+        background-color: #fff;
+        padding: 2rem 2rem 6rem;
+        border-radius: 1.5rem;
+        box-shadow: 2rem 2rem 2rem 0 rgba(#000, 0.03);
+
+        .group {
+            max-width: 30rem;
+
+            .form-input {
+                background-color: var(--body-bg);
+
+            }
+        }
+
+        .jodit-container {
+            margin-bottom: 3rem;
+
+            .jodit-workplace {
+                height: 30rem !important;
+            }
+        }
+
+    }
+}
+
+.select-input {
+    max-width: 30rem;
+
+    label {
+        display: block;
+        font-size: 1.2rem;
+        color: #000;
+        margin-left: .5rem;
+    }
+
+    select {
+        background: none;
+        background-color: var(--body-bg);
+        color: gray;
+        font-size: 1.8rem;
+        padding: 1rem 1rem 1rem .5rem;
+        display: block;
+        width: 100%;
+        border: none;
+        font-family: inherit;
+        border-radius: 0;
+        border-bottom: 1px solid gray;
+        margin: 0 0 2.5rem 0;
+    }
+}

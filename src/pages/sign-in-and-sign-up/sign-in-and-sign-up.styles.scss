@@ -1,0 +1,26 @@
+.sign-in-and-sign-up {
+    padding: 0 3rem;
+    max-width: 100rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    @media all and (max-width: 800px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .sign-in {
+            margin-bottom: 10rem;
+
+            button {
+                margin: 0 auto;
+            }
+        }
+
+        .sign-up {
+            margin-bottom: 10rem;
+        }
+    }
+
+}

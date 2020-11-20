@@ -1,0 +1,43 @@
+.menu-drawer {
+    background-color: #fff;
+    position: fixed;
+    width: 30rem;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 2rem 4rem 0 rgba(#000, 0.03);
+    padding: 2rem;
+    transition: left .5s ease-in-out;
+
+    .drawer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .drawer-link {
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            background-color: transparent;
+            border: none;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+    }
+
+    @media all and (min-width: 800px) {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.close-drawer {
+    left: -40rem;
+
+    @media all and (min-width: 800px) {
+        display: none;
+        visibility: hidden;
+
+    }
+}

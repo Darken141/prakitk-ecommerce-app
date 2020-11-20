@@ -1,0 +1,68 @@
+.footer {
+    background-color: var(--primary-color);
+    margin-top: -1rem;
+    padding: 0 3rem 5rem;
+    color: #fff;
+
+
+    .row {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        .col {
+            width: 24rem;
+            padding: 2rem;
+            margin-bottom: 5rem;
+
+            img {
+                width: 100%;
+            }
+
+            h3 {
+                font-size: 2rem;
+                text-transform: uppercase;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                opacity: .83;
+                padding-bottom: .5rem;
+            }
+
+            ul {
+                list-style: none;
+                opacity: .83;
+
+                li {
+                    padding-bottom: .5rem;
+
+                    a {
+                        text-decoration: none;
+                        color: #fff;
+
+                        &:hover {
+                            text-decoration: underline
+                        }
+                    }
+                }
+            }
+
+            address {
+                opacity: .83;
+
+            }
+
+            .opening-hours {
+                & p:nth-child(even) {
+                    text-align: end;
+                    font-weight: bolder;
+                    font-size: 1.8rem;
+                    // padding-right: 5rem;
+                }
+            }
+
+        }
+    }
+}

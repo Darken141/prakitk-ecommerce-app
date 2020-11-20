@@ -1,0 +1,31 @@
+.custom-button {
+    min-width: 16.5rem;
+    width: auto;
+    height: 5rem;
+    letter-spacing: .5px;
+    line-height: 5rem;
+    padding: 0 3.5rem;
+    font-size: 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-family: inherit;
+    font-weight: bolder;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+
+    &:hover {
+        background-color: transparent;
+        color: var(--primary-color);
+    }
+}
+
+.invert {
+    background-color: #fff;
+    color: var(--primary-color);
+
+    &:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+    }
+}

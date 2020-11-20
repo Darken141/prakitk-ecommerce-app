@@ -1,0 +1,39 @@
+.products-page {
+
+    .back-button {
+        margin-left: 3rem;
+        margin-bottom: 3rem;
+
+        @media all and (max-width: 800px) {
+            margin-left: 2rem;
+
+            @media all and (max-width: 500px) {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    .products-container {
+        margin: 4rem 3rem 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        .collection-item {
+            margin-right: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        @media all and (max-width: 800px) {
+            margin: 4rem 2rem;
+
+            @media all and (max-width: 500px) {
+                margin: 4rem 1rem;
+
+                .collection-item {
+                    margin-right: unset;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.cta-button {
+    min-width: 22rem;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    padding: .7rem 1.5rem;
+    font-family: inherit;
+    font-weight: lighter;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: none;
+    transition: background-color .2s ease-out;
+
+    &:hover {
+        background-color: var(--primary-color-lighter);
+    }
+
+    p {
+        margin: 0 auto;
+    }
+
+    @media all and (max-width: 500px) {
+        font-size: 1.6rem;
+    }
+}
+
+.cta-icon {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    font-size: 3.5rem;
+    margin-right: 1rem;
+
+    @media all and (max-width: 500px) {
+        font-size: 2.5rem;
+    }
+}

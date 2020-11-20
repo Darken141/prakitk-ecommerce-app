@@ -1,0 +1,55 @@
+.menu-item {
+    cursor: pointer;
+    width: 20rem;
+    background-color: rgb(255, 255, 255);
+    padding: 1.8rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    box-shadow: 2rem 2rem 2rem 0 rgba(#000, 0.03);
+    transition:
+        transform .3s ease-out,
+        box-shadow .3s ease-out,
+        border .3s ease-out;
+
+    border: 1px solid transparent;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 2rem 2rem 4rem 0 rgba(#000, 0.05);
+        border: 1px solid var(--primary-color);
+
+    }
+
+    img {
+        // width: 15rem;
+        margin: 0 auto;
+        height: 8rem;
+        background-position: center;
+        background-size: cover;
+        margin-bottom: 2rem;
+    }
+
+    .title {
+        font-weight: 300;
+        font-size: 2rem;
+
+    }
+
+    @media all and (max-width: 500px) {
+        width: 16rem;
+        margin: 1rem;
+
+        img {
+            height: 6rem;
+        }
+
+        .title {
+            font-size: 1.4rem;
+        }
+    }
+}

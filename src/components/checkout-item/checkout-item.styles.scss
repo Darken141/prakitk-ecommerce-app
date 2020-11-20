@@ -1,0 +1,33 @@
+.checkout-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .item-col {
+        padding: 2rem;
+        width: 20%;
+        text-align: center;
+
+        img {
+            // width: 100%;
+            max-height: 8rem;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            font-family: inherit;
+            font-size: 2rem;
+            color: #d91e18
+        }
+
+        .total-price {
+            font-weight: bolder;
+        }
+    }
+
+    @media all and (max-width: 800px) {
+        min-width: 75rem;
+    }
+}
