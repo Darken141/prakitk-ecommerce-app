@@ -20,13 +20,7 @@ const CartProvider = ({ children }) => {
     const [itemCount, setItemCount] = useState(0);
     const [price, setPrice] = useState(0);
     const [cartItems, setCartItems] = useState([])
-    // const [cartHidden, setCartHidden] = useState(false)
-
     const [cartHidden, setCartHidden, cartDropdownRef] = useOutsideAlerter(false)
-
-    console.log(cartHidden)
-    console.log(setCartHidden)
-    console.log(cartDropdownRef)
 
     const toggleCart = () => {
         if (process.env.NODE_ENV === 'development') {

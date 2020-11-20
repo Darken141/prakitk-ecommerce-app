@@ -14,8 +14,6 @@ const SingleProductProvider = ({ children }) => {
         async (id) => {
             const productRef = firestore.doc(`products/${id}`)
             const productSnapshot = await productRef.get()
-            // const data = await productSnapshot.data()
-            console.log(productSnapshot)
             setProduct({
                 id: productSnapshot.id,
                 ...productSnapshot.data()
