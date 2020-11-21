@@ -83,7 +83,7 @@ const CheckoutAddress = ({ history }) => {
                     />
                 </div>
                 <CustomButton>
-                    Skontrólovať
+                    Skontrolovať
                 </CustomButton>
             </div>
             {/* <CheckoutControls handleNextClick={() => history.push(`/objednavka/zhrnutie-objednavky`)} handlePrevClick={() => history.goBack()} slug='dodacie-udaje' /> */}

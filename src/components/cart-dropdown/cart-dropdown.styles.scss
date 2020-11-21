@@ -2,13 +2,13 @@
     z-index: 999;
     position: absolute;
     width: 30rem;
-    height: 35rem;
+    height: 36rem;
     background-color: #fff;
     box-shadow: 2rem 2rem 2rem 0 rgba(#000, 0.03);
     right: 3rem;
     top: 6.5rem;
     border: 1px solid rgba(#000, .1);
-    border-radius: 1.5rem;
+    border-radius: .1rem;
     padding: 1rem;
 
 
@@ -23,19 +23,25 @@
     }
 
     .checkout-button {
+        cursor: pointer;
         width: 100%;
         background-color: var(--primary-color);
         color: #fff;
         display: block;
-        padding: .7rem;
+        padding: .9rem;
         text-align: center;
         text-decoration: none;
-        border-radius: 1rem;
+        border-radius: .1rem;
         font-family: inherit;
         font-size: inherit;
+        border: 1px solid var(--primary-color);
+        margin-bottom: 1rem;
+        transition: background-color .2s ease-out,
+            color .2s ease-out;
 
         &:hover {
-            background-color: var(--primary-color-lighter);
+            background-color: #fff;
+            color: var(--primary-color)
         }
     }
 
