@@ -1,6 +1,7 @@
-import React, { createContext, useState, useEffect, useRef } from 'react'
-import { addItemToCart } from './cart.utils'
+import React, { createContext, useState, useEffect } from 'react'
+import { addItemToCart, removeItemFromCart } from './cart.utils'
 import { useOutsideAlerter } from '../../hooks/outsideAlerter'
+import { firestore } from '../../firebase/firebase.utils'
 
 export const CartContext = createContext({
     cartDropdownRef: null,
@@ -10,7 +11,8 @@ export const CartContext = createContext({
     cartHidden: false,
     toggleCart: () => { },
     addItem: () => { },
-    removeItem: () => { }
+    removeItem: () => { },
+    deleteItem: () => { }
 })
 
 const CartProvider = ({ children }) => {
@@ -34,9 +36,10 @@ const CartProvider = ({ children }) => {
             console.log('CART PROVIDER | addItem')
         }
         setCartItems(addItemToCart(cartItems, item))
+
     }
 
-    const removeItem = item => {
+    const deleteItem = item => {
         if (process.env.NODE_ENV === 'development') {
             console.log('CART PROVIDER | removeItem')
         }
@@ -44,10 +47,34 @@ const CartProvider = ({ children }) => {
         setCartItems(filteredCart)
     }
 
+    const removeItem = item => {
+        setCartItems(removeItemFromCart(cartItems, item))
+
+    }
+
+    useEffect(() => {
+        if (process.env.NODE_ENV === 'development') {
+            console.log('CART PROVIDER | getCartItems from local storage')
+        }
+        if (localStorage.getItem('products')) {
+            const retrievedItems = JSON.parse(localStorage.getItem('products'))
+            setCartItems(retrievedItems.map(item => ({
+                ...item,
+                category: firestore.doc(`categories/${item.category}`)
+            })))
+        }
+    }, [])
+
     useEffect(() => {
         if (process.env.NODE_ENV === 'development') {
             console.log('CART PROVIDER | useEffect')
         }
+        const arr = cartItems.map(item => ({
+            ...item,
+            category: item.category.id
+        }))
+
+        localStorage.setItem('products', JSON.stringify(arr));
         setItemCount(cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity, 0))
         setPrice(cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity * cartItem.price, 0))
     }, [cartItems])
@@ -62,7 +89,8 @@ const CartProvider = ({ children }) => {
                 cartHidden,
                 toggleCart,
                 addItem,
-                removeItem
+                removeItem,
+                deleteItem
             }}
         >
             {children}

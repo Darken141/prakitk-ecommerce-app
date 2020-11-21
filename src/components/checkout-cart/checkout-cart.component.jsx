@@ -4,10 +4,11 @@ import { CartContext } from '../../contexts/cart/cart.context'
 import CheckoutItem from '../checkout-item/checkout-item.component'
 import CheckoutControls from '../checkout-controls/checkout-controls.component'
 
+
 import './checkout-cart.styles.scss'
 
 const CheckoutCart = ({ history, match }) => {
-    const { cartItems, removeItem } = useContext(CartContext)
+    const { cartItems } = useContext(CartContext)
 
     return (
         <React.Fragment>
@@ -33,7 +34,7 @@ const CheckoutCart = ({ history, match }) => {
                 <div>
                     {
                         cartItems.length ? cartItems.map(cartItem => (
-                            <CheckoutItem key={cartItem.id} cartItem={cartItem} removeItem={removeItem} />
+                            <CheckoutItem key={cartItem.id} cartItem={cartItem} />
                         )) : (
                                 <div className='empty-message'>
                                     <p>Košík je prázny</p>

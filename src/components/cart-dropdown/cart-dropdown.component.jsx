@@ -11,8 +11,6 @@ const CartDropdown = () => {
     const { cartItems, removeItem, toggleCart, cartDropdownRef } = useContext(CartContext)
     const history = useHistory()
 
-    console.log(cartDropdownRef)
-
     const handleClick = () => {
         toggleCart()
         history.push('/objednavka')
