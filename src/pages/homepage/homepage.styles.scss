@@ -4,5 +4,10 @@
 }
 
 .container {
-    padding-top: 10rem;
+    // padding-top: 10rem;
+
+    &:not(:last-child) {
+        margin-bottom: 10rem;
+    }
+
 }

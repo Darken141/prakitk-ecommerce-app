@@ -1,20 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { CheckoutContext } from '../../contexts/checkout/checkout.context'
 
-import CheckoutControls from '../checkout-controls/checkout-controls.component'
+// import CheckoutControls from '../checkout-controls/checkout-controls.component'
 import CustomButton from "../custom-button/custom-button.component"
 
 import FormInput from '../form-input/form-input.component'
 
 import './checkout-address.styles.scss'
 
-const CheckoutAddress = ({ history }) => {
-    const [fName, setFName] = useState('')
-    const [lName, setLName] = useState('')
-    const [email, setEmail] = useState('')
-    const [address, setAddress] = useState('')
-    const [city, setCity] = useState('')
-    const [state, setState] = useState('')
-    const [zip, setZip] = useState('')
+const CheckoutAddress = () => {
+    const { checkoutForm, handleAddressChange } = useContext(CheckoutContext)
 
     return (
         <React.Fragment>
@@ -24,16 +19,16 @@ const CheckoutAddress = ({ history }) => {
                         label='Meno'
                         name='fName'
                         type='text'
-                        value={fName}
-                        handleChange={e => setFName(e.target.value)}
+                        value={checkoutForm.address.fName}
+                        handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                         required
                     />
                     <FormInput
                         label='Priezvisko'
                         name='lName'
                         type='text'
-                        value={lName}
-                        handleChange={e => setLName(e.target.value)}
+                        value={checkoutForm.address.lName}
+                        handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                         required
                     />
                 </div>
@@ -41,25 +36,25 @@ const CheckoutAddress = ({ history }) => {
                     label='E-mail'
                     name='email'
                     type='email'
-                    value={email}
-                    handleChange={e => setEmail(e.target.value)}
+                    value={checkoutForm.address.email}
+                    handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                     required
                 />
                 <div className='row'>
                     <FormInput
-                        label='Adresa'
+                        label='Ulica'
                         name='address'
                         type='text'
-                        value={address}
-                        handleChange={e => setAddress(e.target.value)}
+                        value={checkoutForm.address.address}
+                        handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                         required
                     />
                     <FormInput
                         label='Mesto'
                         name='city'
                         type='text'
-                        value={city}
-                        handleChange={e => setCity(e.target.value)}
+                        value={checkoutForm.address.city}
+                        handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                         required
                     />
 
@@ -69,16 +64,16 @@ const CheckoutAddress = ({ history }) => {
                         label='Štát'
                         name='state'
                         type='text'
-                        value={state}
-                        handleChange={e => setState(e.target.value)}
+                        value={checkoutForm.address.state}
+                        handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                         required
                     />
                     <FormInput
                         label='PSČ'
                         name='zip'
                         type='text'
-                        value={zip}
-                        handleChange={e => setZip(e.target.value)}
+                        value={checkoutForm.address.zip}
+                        handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                         required
                     />
                 </div>

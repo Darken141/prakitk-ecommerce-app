@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import { CartContext } from '../../contexts/cart/cart.context'
 
 import CheckoutItem from '../checkout-item/checkout-item.component'
-import CheckoutControls from '../checkout-controls/checkout-controls.component'
+// import CheckoutControls from '../checkout-controls/checkout-controls.component'
 
 
 import './checkout-cart.styles.scss'
 
-const CheckoutCart = ({ history, match }) => {
+const CheckoutCart = () => {
     const { cartItems } = useContext(CartContext)
 
     return (
