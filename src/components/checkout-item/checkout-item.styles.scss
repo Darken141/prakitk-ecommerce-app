@@ -1,16 +1,25 @@
 .checkout-item {
     width: 100%;
-    display: flex;
+    display: grid;
     align-items: center;
+    grid-template-columns: 20% 40% 20% 15% 5%;
+
+    &:not(:last-child) {
+        padding-bottom: 2rem;
+
+    }
 
     .item-col {
-        padding: 2rem;
-        width: 20%;
-        text-align: center;
+        // width: 100%;
+        text-align: start;
+
+
 
         img {
-            // width: 100%;
-            max-height: 8rem;
+            width: 100%;
+            max-height: 15rem;
+            object-fit: contain;
+            object-position: center;
         }
 
         .quantity {
@@ -45,6 +54,100 @@
     }
 
     @media all and (max-width: 800px) {
-        min-width: 75rem;
+        width: 100%;
+        grid-template-columns: 15rem 1fr 7rem;
+        grid-template-areas: "I N D"
+            "I P Q";
+
+
+        .item-col {
+            padding: 2rem;
+
+        }
+
+        .product {
+
+            &-image {
+                grid-area: I;
+                align-self: center;
+                justify-self: center;
+            }
+
+            &-name {
+                grid-area: N;
+            }
+
+            &-quantity {
+                grid-area: Q;
+            }
+
+            &-price {
+                grid-area: P;
+                text-align: end;
+                font-size: 2rem;
+
+            }
+
+            &-delete {
+                grid-area: D;
+            }
+        }
+
+        @media all and (max-width: 500px) {
+            width: 100%;
+            grid-template-columns: 2fr 1fr;
+            grid-template-areas: "I D"
+                "I D"
+                "N N"
+                "P Q"
+                "B B";
+
+            padding: unset;
+
+            &:not(:last-child) {
+                padding-bottom: 2rem;
+
+                &::after {
+                    grid-area: B;
+                    content: " ";
+                    width: 70%;
+                    height: 1px;
+                    background-color: rgba(#000, .15);
+                    margin: 0 auto;
+                }
+            }
+
+            .product {
+
+                &-image {
+                    grid-area: I;
+                    align-self: center;
+                    justify-self: center;
+                }
+
+                &-name {
+                    grid-area: N;
+                    text-align: center;
+
+                }
+
+                &-quantity {
+                    grid-area: Q;
+                }
+
+                &-price {
+                    grid-area: P;
+                    text-align: center;
+                    font-size: 2rem;
+
+                }
+
+                &-delete {
+                    grid-area: D;
+                    align-self: flex-start;
+                    text-align: end;
+                }
+            }
+        }
     }
 }

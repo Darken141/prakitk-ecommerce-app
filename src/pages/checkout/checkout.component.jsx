@@ -17,35 +17,29 @@ const CheckoutPage = () => {
 
     return (
         <section className='checkout-page'>
-            <div className='checkout-progress'>
-                <div className={`${activeStep === '' ? "active" : ""} progress-step `}>
-                    <p>1. Košík</p>
-                </div>
-                <div className={`${activeStep === 'doprava-a-platba' ? "active" : ""} progress-step`}>
-                    <p>2. Doprava a platba</p>
-                </div>
-                <div className={`${activeStep === 'dodacie-udaje' ? "active" : ""} progress-step`}>
-                    <p>3. Dodacie údaje</p>
-                </div>
-                <div className={`${activeStep === 'zhrnutie-objednavky' ? "active" : ""} progress-step `}>
-                    <p>4. Zhrnutie objednávky</p>
-                </div>
-            </div>
-            <SectionHeading>
-                Skontrolujte si svoj nákupný košík
-            </SectionHeading>
-
-            <div className='checkout-form'>
-
-                <Switch>
-                    <Route exact path={`${match.url}/`} component={CheckoutCart} />
-                    <Route path={`${match.url}/doprava-a-platba`} component={CheckoutShippingAndPayment} />
-                    <Route path={`${match.url}/dodacie-udaje`} component={CheckoutAddress} />
-                    <Route path={`${match.url}/zhrnutie-objednavky`} component={CheckoutSummary} />
-                </Switch>
-
+            <div className='checkout-section'>
+                <SectionHeading>
+                    Položky vo vašom košíku:
+                </SectionHeading>
+                <CheckoutCart />
             </div>
 
+            <div className='checkout-section'>
+                <SectionHeading>
+                    Vyberte si Spôsob doručenia
+                </SectionHeading>
+
+                <CheckoutShippingAndPayment />
+            </div>
+
+            <div className='checkout-section'>
+                <SectionHeading>
+                    Adresa doručenia
+                </SectionHeading>
+
+                <CheckoutAddress />
+
+            </div>
 
         </section>
     )

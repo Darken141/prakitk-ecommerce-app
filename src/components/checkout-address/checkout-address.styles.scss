@@ -1,0 +1,42 @@
+.address {
+    margin: 5rem 3rem;
+    max-width: 60rem;
+
+    @media all and (max-width: 800px) {
+        margin: 5rem 2rem;
+
+        @media all and (max-width: 500px) {
+            margin: 5rem 1rem;
+        }
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+
+        .group {
+            input {
+                margin: 0;
+            }
+
+            margin: unset;
+            margin-bottom: 2rem;
+
+            &:first-child {
+                padding-right: 2rem;
+            }
+        }
+    }
+
+    .group {
+        input {
+            margin: 0;
+        }
+
+        margin: unset;
+
+        margin-bottom: 4rem;
+
+    }
+}

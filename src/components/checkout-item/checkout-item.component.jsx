@@ -12,13 +12,13 @@ const CheckoutItem = ({ cartItem }) => {
 
     return (
         <div className='checkout-item'>
-            <div className='item-col'>
+            <div className='item-col product-image' >
                 <img alt={productName} src={imgUrl} />
             </div>
-            <div className='item-col'>
+            <div className='item-col product-name'>
                 <p>{productName}</p>
             </div>
-            <div className='item-col'>
+            <div className='item-col product-quantity'>
                 <div className='quantity'>
                     <button className='icon' onClick={() => removeItem(cartItem)}>
                         <AiOutlineLeft />
@@ -29,11 +29,11 @@ const CheckoutItem = ({ cartItem }) => {
                     </button>
                 </div>
             </div>
-            <div className='item-col'>
+            <div className='item-col product-price'>
                 <p>{quantity} x {(price / 100).toFixed(2)}€</p>
                 <p className='total-price'>{((quantity * price) / 100).toFixed(2)}€</p>
             </div>
-            <div className='item-col'>
+            <div className='item-col product-delete'>
                 <button className='delete-icon' onClick={() => deleteItem(cartItem)}>&#10005;</button>
             </div>
         </div>

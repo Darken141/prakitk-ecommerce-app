@@ -17,6 +17,14 @@
         font-weight: lighter;
     }
 
+    .heading {
+        cursor: default;
+        font-size: 3rem;
+        text-transform: uppercase;
+        font-weight: lighter;
+
+    }
+
     @media all and (max-width: 800px) {
         padding-left: 2rem;
 

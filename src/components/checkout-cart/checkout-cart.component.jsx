@@ -28,23 +28,22 @@ const CheckoutCart = ({ history, match }) => {
                         <p>Cena</p>
                     </div>
                     <div className='header-block'>
-                        <p>Odstrániť</p>
+                        {" "}
                     </div>
                 </div>
                 <div>
-                    {
-                        cartItems.length ? cartItems.map(cartItem => (
-                            <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-                        )) : (
-                                <div className='empty-message'>
-                                    <p>Košík je prázny</p>
-                                </div>
-                            )
+                    {cartItems.length ? cartItems.map(cartItem => (
+                        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+                    )) : (
+                            <div className='empty-message'>
+                                <p>Košík je prázny</p>
+                            </div>
+                        )
                     }
                 </div>
 
             </div>
-            <CheckoutControls disablePrev handleNextClick={() => history.push(`${match.path}doprava-a-platba`)} slug='' />
+            {/* <CheckoutControls disablePrev handleNextClick={() => history.push(`${match.path}doprava-a-platba`)} slug='' /> */}
         </React.Fragment>
     )
 }
