@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-container": "docker build -t eu.gcr.io/praktik-293317/praktik-ecomerce:latest .",
-    "push-container": "docker push eu.gcr.io/praktik-293317/praktik-ecomerce:latest"
+    "push-container": "docker push eu.gcr.io/praktik-293317/praktik-ecomerce:latest",
+    "build-and-push": "npm run build && npm run build-container && npm run push-container"
   },
   "eslintConfig": {
     "extends": [
