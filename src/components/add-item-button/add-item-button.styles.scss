@@ -12,12 +12,14 @@
     font-family: inherit;
     font-weight: lighter;
     font-size: 2rem;
-    border-radius: 1rem;
-    border: none;
-    transition: background-color .2s ease-out;
+    border-radius: .1rem;
+    border: 1px solid var(--primary-color);
+    transition: background-color .2s ease-out,
+        color .2s ease-out;
 
     &:hover {
-        background-color: var(--primary-color-lighter);
+        background-color: #fff;
+        color: var(--primary-color);
     }
 
     p {
