@@ -41,6 +41,16 @@
     }
 }
 
+.price-total {
+    padding: 2rem;
+    font-size: 3rem;
+    text-align: end;
+
+    span {
+        font-weight: bolder;
+    }
+}
+
 .empty-message {
     padding: 5rem 0;
     text-align: center;

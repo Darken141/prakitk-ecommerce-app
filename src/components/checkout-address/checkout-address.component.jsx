@@ -31,6 +31,14 @@ const CheckoutAddress = () => {
                         handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                         required
                     />
+                    <FormInput
+                        label='Tel. číslo'
+                        name='phone'
+                        type='text'
+                        value={checkoutForm.address.phone}
+                        handleChange={e => handleAddressChange(e.target.name, e.target.value)}
+                        required
+                    />
                 </div>
                 <FormInput
                     label='E-mail'
@@ -62,9 +70,9 @@ const CheckoutAddress = () => {
                 <div className='row'>
                     <FormInput
                         label='Štát'
-                        name='state'
+                        name='country'
                         type='text'
-                        value={checkoutForm.address.state}
+                        value={checkoutForm.address.country}
                         handleChange={e => handleAddressChange(e.target.name, e.target.value)}
                         required
                     />
@@ -78,7 +86,7 @@ const CheckoutAddress = () => {
                     />
                 </div>
                 <CustomButton>
-                    Skontrolovať
+                    Dokončiť
                 </CustomButton>
             </div>
             {/* <CheckoutControls handleNextClick={() => history.push(`/objednavka/zhrnutie-objednavky`)} handlePrevClick={() => history.goBack()} slug='dodacie-udaje' /> */}

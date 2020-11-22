@@ -7,12 +7,14 @@ export const CartContext = createContext({
     cartDropdownRef: null,
     cartItems: [],
     price: 0,
+    shippingFee: 0,
     itemCount: 0,
     cartHidden: false,
     toggleCart: () => { },
     addItem: () => { },
     removeItem: () => { },
-    deleteItem: () => { }
+    deleteItem: () => { },
+    addShippingFee: () => { }
 })
 
 const CartProvider = ({ children }) => {
@@ -21,8 +23,13 @@ const CartProvider = ({ children }) => {
     }
     const [itemCount, setItemCount] = useState(0);
     const [price, setPrice] = useState(0);
+    const [shippingFee, setShippingFee] = useState(0);
     const [cartItems, setCartItems] = useState([])
     const [cartHidden, setCartHidden, cartDropdownRef] = useOutsideAlerter(false)
+
+    const addShippingFee = (amount) => {
+        setShippingFee(amount)
+    }
 
     const toggleCart = () => {
         if (process.env.NODE_ENV === 'development') {
@@ -76,8 +83,8 @@ const CartProvider = ({ children }) => {
 
         localStorage.setItem('products', JSON.stringify(arr));
         setItemCount(cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity, 0))
-        setPrice(cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity * cartItem.price, 0))
-    }, [cartItems])
+        setPrice(cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity * cartItem.price, 0) + shippingFee)
+    }, [cartItems, shippingFee])
 
     return (
         <CartContext.Provider
@@ -86,11 +93,13 @@ const CartProvider = ({ children }) => {
                 cartItems,
                 itemCount,
                 price,
+                shippingFee,
                 cartHidden,
                 toggleCart,
                 addItem,
                 removeItem,
-                deleteItem
+                deleteItem,
+                addShippingFee
             }}
         >
             {children}

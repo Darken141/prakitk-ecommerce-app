@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { CheckoutContext } from '../../contexts/checkout/checkout.context'
+import { CartContext } from '../../contexts/cart/cart.context'
 
 // import CheckoutControls from '../checkout-controls/checkout-controls.component'
 
@@ -7,13 +8,13 @@ import './checkout-shipping-and-payment.styles.scss'
 
 const CheckoutShippingAndPayment = () => {
     const { checkoutForm, handleShippingChange, handlePaymentChange } = useContext(CheckoutContext)
-
+    const { shippingFee } = useContext(CartContext)
 
     return (
         <React.Fragment>
             <div className='shipping-and-payments'>
                 <label className="radio-container" >
-                    Osobný odber
+                    Osobný odber (Nové Mesto n/V)
                     <input
                         type="radio"
                         name='shipping'
@@ -49,7 +50,7 @@ const CheckoutShippingAndPayment = () => {
                     <span className="checkmark"></span>
                 </label>
                 <label className={`radio-container ${checkoutForm.shipping === "osobny-odber" ? "disabled" : ""}`}>
-                    Pri prevzatí (dobierka)
+                    Pri prevzatí (dobierka) + 7€
                     <input
                         type="radio"
                         name='payment'
@@ -60,27 +61,31 @@ const CheckoutShippingAndPayment = () => {
                     />
                     <span className="checkmark"></span>
                 </label>
-                <label className={`radio-container ${checkoutForm.shipping === "osobny-odber" ? "disabled" : ""}`}>
-                    Platba kartou online
+                {/* <label className={`radio-container ${checkoutForm.shipping === "osobny-odber" ? "disabled" : ""}`}> */}
+                <label className={`radio-container ${true ? "disabled" : ""}`}>
+                    Platba kartou online (pripravujeme)
                     <input
                         type="radio"
                         name='payment'
                         value="platba-kartou-online"
                         onChange={e => handlePaymentChange(e.target.name, e.target.value)}
                         checked={checkoutForm.payment === "platba-kartou-online"}
-                        disabled={checkoutForm.shipping === "osobny-odber"}
+                        // disabled={checkoutForm.shipping === "osobny-odber"}
+                        disabled
                     />
                     <span className="checkmark"></span>
                 </label>
-                <label className={`radio-container ${checkoutForm.shipping === "osobny-odber" ? "disabled" : ""}`} >
-                    Bankovým prevodom
+                {/* <label className={`radio-container ${checkoutForm.shipping === "osobny-odber" ? "disabled" : ""}`} > */}
+                <label className={`radio-container ${true ? "disabled" : ""}`} >
+                    Bankovým prevodom (pripravujeme)
                     <input
                         type="radio"
                         name='payment'
                         value="bankovym-prevodom"
                         onChange={e => handlePaymentChange(e.target.name, e.target.value)}
                         checked={checkoutForm.payment === "bankovym-prevodom"}
-                        disabled={checkoutForm.shipping === "osobny-odber"}
+                        // disabled={checkoutForm.shipping === "osobny-odber"}
+                        disabled
                     />
                     <span className="checkmark"></span>
                 </label>

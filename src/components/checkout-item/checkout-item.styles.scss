@@ -25,13 +25,19 @@
         .quantity {
             display: flex;
             justify-content: center;
+            align-items: center;
             font-size: 2rem;
 
             .icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 cursor: pointer;
                 background-color: transparent;
                 color: var(--primary-color);
                 border: none;
+                font-size: 3rem;
+                outline: none;
             }
 
             p {
@@ -55,7 +61,7 @@
 
     @media all and (max-width: 800px) {
         width: 100%;
-        grid-template-columns: 15rem 1fr 7rem;
+        grid-template-columns: 15rem 1fr 10rem;
         grid-template-areas: "I N D"
             "I P Q";
 
@@ -90,6 +96,8 @@
 
             &-delete {
                 grid-area: D;
+                align-self: flex-start;
+                text-align: end;
             }
         }
 
@@ -144,8 +152,7 @@
 
                 &-delete {
                     grid-area: D;
-                    align-self: flex-start;
-                    text-align: end;
+
                 }
             }
         }

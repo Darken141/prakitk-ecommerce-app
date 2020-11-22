@@ -8,7 +8,7 @@ import CheckoutItem from '../checkout-item/checkout-item.component'
 import './checkout-cart.styles.scss'
 
 const CheckoutCart = () => {
-    const { cartItems } = useContext(CartContext)
+    const { cartItems, price } = useContext(CartContext)
 
     return (
         <React.Fragment>
@@ -41,7 +41,9 @@ const CheckoutCart = () => {
                         )
                     }
                 </div>
-
+                <div className='price-total'>
+                    <p>Spolu: <span>{(price / 100).toFixed(2)}€</span></p>
+                </div>
             </div>
             {/* <CheckoutControls disablePrev handleNextClick={() => history.push(`${match.path}doprava-a-platba`)} slug='' /> */}
         </React.Fragment>

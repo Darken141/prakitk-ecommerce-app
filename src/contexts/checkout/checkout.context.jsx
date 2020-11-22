@@ -14,7 +14,7 @@ const CheckoutProvider = ({ children }) => {
     if (process.env.NODE_ENV === 'development') {
         console.log('CHECKOUT PROVIDER | render')
     }
-    const { cartItems } = useContext(CartContext)
+    const { cartItems, addShippingFee } = useContext(CartContext)
     const [activeStep, setActiveStep] = useState('')
     const [checkoutForm, setCheckoutForm] = useState({
         items: cartItems,
@@ -23,10 +23,11 @@ const CheckoutProvider = ({ children }) => {
         address: {
             fName: '',
             lName: '',
+            phone: '',
             email: '',
             address: '',
             city: '',
-            state: '',
+            country: 'Slovensko',
             zip: ''
         }
     })
@@ -38,6 +39,8 @@ const CheckoutProvider = ({ children }) => {
                 [name]: option,
                 payment: "pri-prevzati-dobierka"
             })
+            addShippingFee(700)
+
         }
 
         if (checkoutForm.shipping === "dorucenie-na-adresu") {
@@ -46,6 +49,7 @@ const CheckoutProvider = ({ children }) => {
                 [name]: option,
                 payment: "pri-prevzati-osobny-odber"
             })
+            addShippingFee(0)
         }
     }
 

@@ -1,11 +1,10 @@
-.address {
+.reservation-form {
     margin: 5rem 3rem;
     max-width: 60rem;
     background-color: #fff;
     padding: 4rem 2rem;
     border-radius: .1rem;
     box-shadow: 2rem 2rem 2rem 0 rgba(#000, 0.03);
-
 
     @media all and (max-width: 800px) {
         margin: 5rem 2rem;
@@ -20,9 +19,6 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
 
-
-
-
         .group {
             input {
                 background-color: var(--body-bg);
@@ -32,21 +28,14 @@
             margin: unset;
             margin-bottom: 2rem;
 
-            &:nth-child(odd) {
+            &:first-child {
                 padding-right: 2rem;
             }
         }
-    }
 
-    .group {
-        input {
-            background-color: var(--body-bg);
-            margin: 0;
+
+        &:last-of-type {
+            margin-bottom: 2rem;
         }
-
-        margin: unset;
-
-        margin-bottom: 4rem;
-
     }
 }
